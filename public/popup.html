@@ -2,31 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Chrome Extension</title>
+    <title>BigBlueButton</title>
     <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
+
+  <!-- <label id="bbb-google-sign-out" class="label-link">Log out</label> -->
+  <div class="app center">
+    <img id="bbb-google-avatar" src="" height="42" width="42" class="round margin">
+    <p id="bbb-google-email"></p>
+  </div>
   <div class="app">
-    <p class="counter-label">Counter</p>
-    <div id="counter" class="counter"></div>
-    <div class="button-container">
-      <button id="decrementBtn" class="button">-</button>
-      <button id="incrementBtn" class="button">+</button>
-    </div>
-
-    <hr class="divider" />
-
-    <p class="title">Chrome Extension is Ready!</p>
-    <p class="subtitle">Start by updating <code>popup.html</code></p>
+    <button id="bbb-create-meeting" class="button">Enter Meeting</button>
   </div>
 
   <script src="popup.js"></script>
+  <script type="text/javascript" src="oauth.js"></script>
 
-  <!--
-    This HTML file opens when you click on icon from the toolbar.
-
-    To begin the development, run `npm run watch`.
-    To create a production bundle, use `npm run build`.
-  -->
 </body>
 </html>

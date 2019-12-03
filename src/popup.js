@@ -1,6 +1,7 @@
 'use strict';
 
 import './popup.css';
+import { Script } from 'vm';
 
 (function() {
   // We will make use of Storage API to get and store `count` value
@@ -10,92 +11,82 @@ import './popup.css';
   // To get storage access, we have to mention it in `permissions` property of manifest.json file
   // More information on Permissions can we found at
   // https://developer.chrome.com/extensions/declare_permissions
-  const counterStorage = {
-    get: cb => {
-      chrome.storage.sync.get(['count'], result => {
-        cb(result.count);
+
+  const userStorage = {
+    get: user => {
+      chrome.storage.sync.get(['user'], result => {
+        user(result.user);
       });
     },
-    set: (value, cb) => {
+    set: (value) => {
       chrome.storage.sync.set(
         {
-          count: value,
-        },
-        () => {
-          cb();
+          user: value,
         }
       );
     },
   };
 
-  function setupCounter(initialValue = 0) {
-    document.getElementById('counter').innerHTML = initialValue;
+  function attachJoinMeetingListener() {
+    getUserInfo();
+    document.getElementById('bbb-create-meeting').addEventListener('click', () => {
 
-    document.getElementById('incrementBtn').addEventListener('click', () => {
-      updateCounter({
-        type: 'INCREMENT',
-      });
-    });
+      console_msg("------------------------Try to join meeting--------------------");
 
-    document.getElementById('decrementBtn').addEventListener('click', () => {
-      updateCounter({
-        type: 'DECREMENT',
-      });
+      let greenlightAuthURL = "https://amy.blindside-dev.com/b/auth/google";
+
+      window.open(greenlightAuthURL, '_blank');
+
     });
   }
 
-  function updateCounter({ type }) {
-    counterStorage.get(count => {
-      let newCount;
+  function getUserInfo() {
+    chrome.identity.getAuthToken({
+      interactive: true
+    }, function(token) {
 
-      if (type === 'INCREMENT') {
-        newCount = count + 1;
-      } else if (type === 'DECREMENT') {
-        newCount = count - 1;
-      } else {
-        newCount = count;
+      var xhr = new XMLHttpRequest();
+      var url = "https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + token;
+      xhr.open("GET", url);
+
+      xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+      xhr.onload = function() {
+        if (this.status === 401) {
+
+        } else {
+          console_msg(this.response);
+          userStorage.set(JSON.parse(this.response));
+          fillInPopup(JSON.parse(this.response));
+        }
       }
+      xhr.send();
+    });
+  }
 
-      counterStorage.set(newCount, () => {
-        document.getElementById('counter').innerHTML = newCount;
+  function fillInPopup(user) {
+    document.getElementById('bbb-google-avatar').src = user.picture;
+    document.getElementById('bbb-google-email').innerHTML = user.email;
+  }
 
-        // Communicate with content script of
-        // active tab by sending a message
-        chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-          const tab = tabs[0];
+  function console_msg(msg) {
+    chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
+        const tab = tabs[0];
 
-          chrome.tabs.sendMessage(
-            tab.id,
-            {
-              type: 'COUNT',
-              payload: {
-                count: newCount,
-              },
-            },
-            response => {
-              console.log('Current count value passed to contentScript file');
+        chrome.tabs.sendMessage(
+          tab.id,
+          {
+            type: 'TEST_DEBUG',
+            payload: {
+              message: msg,
             }
-          );
-        });
-      });
+          },
+          response => {
+            console.log('Current count value passed to contentScript file');
+          }
+        );
     });
-  }
-
-  function restoreCounter() {
-    // Restore count value
-    counterStorage.get(count => {
-      if (typeof count === 'undefined') {
-        // Set counter value as 0
-        counterStorage.set(0, () => {
-          setupCounter(0);
-        });
-      } else {
-        setupCounter(count);
-      }
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', restoreCounter);
+}
+  document.addEventListener('DOMContentLoaded', attachJoinMeetingListener);
 
   // Communicate with background file by sending a message
   chrome.runtime.sendMessage(

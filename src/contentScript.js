@@ -34,6 +34,8 @@ chrome.runtime.sendMessage(
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === 'COUNT') {
     console.log(`Current count is ${request.payload.count}`);
+  } else if (request.type === 'TEST_DEBUG') {
+    console.log(request.payload.message);
   }
 
   // Send an empty response
