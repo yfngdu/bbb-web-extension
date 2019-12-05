@@ -12,8 +12,6 @@ A simple web extension to enter a BigBlueButton meeting.
 [**Chrome** extension]() <!-- TODO: Add chrome extension link inside parenthesis -->
 
 ## Development
-Turn developer mode on for chrome extensions (at chrome://extensions) and load the build/ directory unpacked into the extensions.
-
 Run `npm install` to install packages.
 
 Run `cp public/manifest.json.example public/manifest.json` to create a manifest file.
@@ -24,6 +22,8 @@ Go to [Google Cloud Platform API Credentials](https://console.cloud.google.com/a
 
 Run `npm run build` to create a production build.
 Run `npm run watch` to update the build files for the extension live.
+
+Turn developer mode on for chrome extensions (at chrome://extensions) and load the build/ directory unpacked into the extensions.
 
 Update the extension settings with your GreenLight server URL.
 
