@@ -1,11 +1,11 @@
 # <img src="public/icons/icon_48.png" width="45" align="left"> Bbb Web Extension
 
-My Chrome Extension
+A simple web extension to enter a BigBlueButton meeting.
 
 ## Features
 
-- Feature 1
-- Feature 2
+- Log in using your Google account.
+- Enter meetings from your browser.
 
 ## Install
 
