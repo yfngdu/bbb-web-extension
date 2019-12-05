@@ -27,6 +27,7 @@ body {
     flex-direction: column;
     text-align: center;
     padding: 20px;
+    width: 100%;
 }
 
 .title {
@@ -67,13 +68,14 @@ code {
     padding: 10px 20px;
     margin-right: 4px;
     margin-left: 4px;
-    background-color: bisque;
+    background-color: #467fcf;
     font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
     text-decoration: none;
     transition: transform .2s ease;
     user-select: none;
+    color: #fff;
 }
 
 .button:focus {
@@ -91,13 +93,6 @@ code {
     opacity: .1;
 }
 
-.label-link {
-    float: right;
-    padding: 0.5em;
-    cursor: pointer;
-    color: #1a0dab;
-}
-
 .center {
     text-align: center;
 }
@@ -108,4 +103,18 @@ code {
 
 .margin {
     margin: 1em;
+}
+
+.right-aligned {
+    float: right;
+}
+
+.label-link {
+    cursor: pointer;
+    margin: 1em;
+    color:#00e;
+}
+
+.label-link:visited {
+    color: #551a8b;
 }

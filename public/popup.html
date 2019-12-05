@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>BigBlueButton</title>
-    <link rel="stylesheet" href="popup.css" />
-</head>
-<body>
-
-  <!-- <label id="bbb-google-sign-out" class="label-link">Log out</label> -->
-  <div class="app center">
-    <img id="bbb-google-avatar" src="" height="42" width="42" class="round margin">
-    <p id="bbb-google-email"></p>
-  </div>
-  <div class="app">
-    <button id="bbb-create-meeting" class="button">Enter Meeting</button>
-  </div>
-
-  <script src="popup.js"></script>
-  <script type="text/javascript" src="oauth.js"></script>
-
-</body>
+  <head>
+      <meta charset="UTF-8">
+      <title>BigBlueButton</title>
+      <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <a id="bbb-settings" class="right-aligned margin" href="settings.html" target="_blank">Settings</a>
+    <div class="app center">
+      <img id="bbb-google-avatar" src="" height="42" width="42" class="round margin">
+      <p id="bbb-google-email"></p>
+    </div>
+    <div id="bbb-create-meeting-div" class="app">
+      <button id="bbb-create-meeting" class="button">Enter Meeting</button>
+    </div>
+    <label id="bbb-google-sign-out" class="label-link right-aligned">Sign out</label>
+    <script src="popup.js"></script>
+    <script type="text/javascript" src="oauth.js"></script>
+  </body>
 </html>

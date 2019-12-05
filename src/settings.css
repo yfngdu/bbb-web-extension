@@ -1,0 +1,44 @@
+.settings-block {
+    margin: auto;
+    width: 50%;
+}
+
+label, input, button {
+    font-size: 16px;
+}
+
+form label {
+    width: 30%;
+}
+
+form input {
+    width: 70%;
+}
+
+form div {
+    margin-bottom: 2em;
+}
+
+.button {
+    border: 0;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 4px;
+    margin-left: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: transform .2s ease;
+    user-select: none;
+}
+
+.submit-button {
+    background-color: #467fcf;
+    color: #fff;
+}
+
+.cancel-button {    
+    background-color: #dddddd;
+    color: #000;
+}

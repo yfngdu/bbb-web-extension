@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "BigBlueButton",
   "version": "0.1.0",
-  "description": "My Chrome Extension",
+  "description": "A simple web extension to enter a BigBlueButton meeting.",
   "key": "<public_key>",
   "icons": {
     "16": "icons/icon_16.png",
@@ -20,13 +20,14 @@
   },
   "background": {
     "scripts": [
-      "background.js"
+      "background.js",
+      "backgroundOauth.js"
     ],
     "persistent": false
   },
   "browser_action": {
     "default_title": "BigBlueButton",
-    "default_popup": "popup.html"
+    "default_popup": "login.html"
   },
   "permissions": [
     "storage",
