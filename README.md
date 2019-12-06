@@ -16,9 +16,9 @@ Run `npm install` to install packages.
 
 Run `cp public/manifest.json.example public/manifest.json` to create a manifest file.
 
-Go to [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/developer/dashboard) to create a new application. Zip the build/ directory and upload to your new app. Save the draft and return to your dashboard. From the app, get the item ID and public key. Paste the public key in the manifest.json file. 
+Go to [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/developer/dashboard) to create a new application. Zip the build/ directory and upload to your new app. Save the draft and return to your dashboard. From the app, get the item ID and public key. Paste the public key in the manifest file and the item ID into the browser specific section of the manifest file.
 
-Go to [Google Cloud Platform API Credentials](https://console.cloud.google.com/apis/credentials) and create a new OAuth Client Credential for a web application. Use the item ID and add `https://<item_id>.chromiumapp.org/` to the authorized redirect URIs. Save and copy the Client ID into the manifest.json file.
+Go to [Google Cloud Platform API Credentials](https://console.cloud.google.com/apis/credentials) and create a new OAuth Client Credential for a web application. Use the item ID and add `https://<item_id>.chromiumapp.org/` to the authorized redirect URIs. Save and copy the Client ID into the manifest file.
 
 Go to [OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent) and create a new consent screen with the scopes: email, profile, and openid. Allow the authorized domain, chromiumapp.org and save.
 

@@ -5,7 +5,7 @@ import './settings.css';
 
     // get bigbluebutton urls from storage
     function fillInSettings() {
-        chrome.storage.sync.get(['bigbluebutton_settings'], result => {
+        chrome.storage.sync.get(['bigbluebutton_settings', 'settings_time'], result => {
             document.getElementById('gl-url').value = result.bigbluebutton_settings.gl_url;
         });
     }

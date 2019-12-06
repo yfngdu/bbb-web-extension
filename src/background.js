@@ -17,17 +17,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     sendResponse({
       message,
     });
-  } else if (request.type === 'TEST_DEBUG') {
-    console.log(request.payload.message);
-
-    const message = request.payload.message;
-
-    // Log message coming from the `request` parameter
-    console.log(request.payload.message);
-    // Send a response message
-    sendResponse({
-      message,
-    });
   }
 });
 
