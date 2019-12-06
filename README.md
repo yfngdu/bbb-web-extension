@@ -6,6 +6,7 @@ A simple web extension to enter a BigBlueButton meeting.
 
 - Log in using your Google account.
 - Enter meetings from your browser.
+- Supports Chrome and Firefox.
 
 ## Install
 
