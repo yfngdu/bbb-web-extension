@@ -20,7 +20,7 @@ Go to [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/
 
 Go to [Google Cloud Platform API Credentials](https://console.cloud.google.com/apis/credentials) and create a new OAuth Client Credential for a web application. Use the item ID and add `https://<item_id>.chromiumapp.org/` to the authorized redirect URIs. Save and copy the Client ID into the manifest file.
 
-Go to [OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent) and create a new consent screen with the scopes: email, profile, and openid. Allow the authorized domain, chromiumapp.org and save.
+Go to [OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent) and create a new consent screen with the scopes: email, profile, and openid. Allow the authorized domains, chromiumapp.org and allizom.org.
 
 Run `npm run build` to create a production build.
 Run `npm run watch` to update the build files for the extension live.
