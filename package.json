@@ -15,7 +15,7 @@
     "size-plugin": "^2.0.1",
     "serialize-javascript": ">=2.1.1",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
+    "webpack-cli": "^3.3.12",
     "webpack-merge": "^4.2.2"
   }
 }
